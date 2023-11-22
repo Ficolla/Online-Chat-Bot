@@ -1,10 +1,10 @@
 $(function() {
     $('#sendBtn').bind('click', function() {
         msg = $('#msg').val()
-        $.getJSON('/run', {msg: msg}, function(data) {
-            console.log(data)
-        })
-        return false;
+        $.getJSON('/send_message', {msg: msg}, function(data) {
+            if (data['success'])
+                $('#msg').val('')
+            })
     });
 });
 
